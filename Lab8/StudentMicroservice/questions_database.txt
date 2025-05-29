@@ -1,0 +1,6 @@
+Intrebare1?
+Raspuns1
+Intrebare2?
+Raspuns2
+Intrebare3?
+Raspuns3

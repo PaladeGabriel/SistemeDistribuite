@@ -1,0 +1,4 @@
+Care este rezultatul operatiei 2+2?
+Rezultatul este patru
+Care este rezultatul operatiei 2+3?
+Rezultatul este cinci

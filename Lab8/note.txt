@@ -1,0 +1,72 @@
+Docker->intr-o imagine docker pot defini toate instructiunile (reteta) pentru a putea rula proiectul (ex:
+alpine
+------
+sudo apt.get.install node
+--------
+mkdir root
+-------
+.wget
+---------
+node app.js
+----------------------
+java -- jar
+)
+
+Imaginea e clasa iar containerul docker e obiectul (instanta).
+
+Din ce am scris in lista (imagine docker) rezulta containerul in sine.Containerul ruleaza pe un port (e serviciu).
+Pot seta existenta numerica a containerelor in functie de anumiti parametri (sa am mereu intre 2 si 4).
+Pot seta sa ruleze pe un anumit port dintr-o retea privata (creez mai multe retele private ce interactioneaza intre ele).
+Cineva care are engine-ul de docker, poate folosi doar imagine pentru a folosi aplicatia, fara a avea de ex. node.js instalat.
+
+Docker compose:Servicii cu tehnologii diferite (fara sa am java/nod instalat local,doar engineul de docker)
+
+ECS->pot inregistra imagini de docker si sa lansez serviciile sub AWS.
+
+
+
+Aplicatie:
+
+
+Serviciu central MsgSer ce comunica dus-intors cu alte servicii
+
+-----------------------------------------------
+
+
+registry:2 is a Docker image
+...that runs a Docker Registry when you start a container from it.
+
+💡 Explained:
+registry:2 is the official Docker image for the Docker Registry v2.
+
+When you run it, like this:
+
+bash
+Copy
+Edit
+docker run -d -p 5000:5000 --name my-registry registry:2
+...you are starting a container that runs the Docker Registry server — basically a little HTTP API that can store and serve Docker images.
+
+🧠 So, what happens here?
+registry:2 → an image you pull from Docker Hub.
+
+You run this image → it becomes a running container.
+
+That container acts as your own private Docker registry (like a mini version of Docker Hub running locally or on a private network).
+
+🔁 Typical Flow:
+bash
+Copy
+Edit
+# 1. Run a local Docker Registry
+docker run -d -p 5000:5000 --name my-registry registry:2
+
+# 2. Tag your image to point to the registry
+docker tag myapp:1.0 localhost:5000/myapp:1.0
+
+# 3. Push it to the local registry
+docker push localhost:5000/myapp:1.0
+
+# 4. (From another machine/container) pull it back
+docker pull localhost:5000/myapp:1.0
+Let me know if you want help setting it up with authentication, SSL, or persistent storage — totally doable.
