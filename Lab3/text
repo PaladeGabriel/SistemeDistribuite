@@ -1,0 +1,4 @@
+spring initializer
+java 17 21 23
+
+la repository folosim maven central daca fac cu maven si nu direct cu spring
